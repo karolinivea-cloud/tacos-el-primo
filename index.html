@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- META BÁSICO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tacos El Primo | Tacos estilo Jalisco en Chihuahua</title>
+    <meta name="description" content="Tacos El Primo, auténticos tacos estilo Jalisco en Chihuahua. Pastor, Suadero, Asada, Chorizo, Prensado, gringas, lorenzas y más. 18 años de tradición familiar.">
+    <meta name="keywords" content="tacos el primo, tacos en chihuahua, tacos estilo jalisco, tacos pastor, tacos suadero, tacos chihuahua">
+    <meta name="author" content="Tacos El Primo">
+
+    <!-- OPEN GRAPH PARA REDES -->
+    <meta property="og:title" content="Tacos El Primo | Tacos estilo Jalisco en Chihuahua">
+    <meta property="og:description" content="Auténticos tacos estilo Jalisco desde hace 18 años en Chihuahua. Pastor, Suadero y más, con sazón familiar.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tacoselprimo.mx/">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Tacos+El+Primo">
+
+    <!-- FAVICON PLACEHOLDER (SVG EMBED) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='60' x='10' font-size='60'%3E🌮%3C/text%3E%3C/svg%3E">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME PARA ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
+    <style>
+        /* =========================
+           RESET Y VARIABLES
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rojo: #d62828;
+            --rojo-oscuro: #a51e1e;
+            --amarillo: #ffd166;
+            --amarillo-oscuro: #f4b41a;
+            --fondo: #0b0b0b;
+            --texto: #f9f9f9;
+            --gris: #bbbbbb;
+            --card-bg: #1a1a1a;
+            --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.35);
+            --radius-xl: 18px;
+            --transition: 0.3s ease;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #2b0000 0, #050505 45%, #000 100%);
+            color: var(--texto);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        /* =========================
+           NAVBAR STICKY (MÁS CORTO)
+        ========================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0.25rem 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .logo-icon {
+            font-size: 1.4rem;
+            filter: drop-shadow(0 0 6px rgba(255, 209, 102, 0.8));
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            justify-content: flex-end;
+            font-size: 0.8rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 0.1rem;
+            white-space: nowrap;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--amarillo), var(--rojo));
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        /* =========================
+           HERO
+        ========================== */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1.2rem 3rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -40px;
+            background-image:
+                linear-gradient(120deg, rgba(0,0,0,0.85), rgba(0,0,0,0.65)),
+                url("https://images.pexels.com/photos/4958678/pexels-photo-4958678.jpeg?auto=compress&cs=tinysrgb&w=1600");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(214, 40, 40, 0.35), transparent 55%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(214, 40, 40, 0.8);
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-text p {
+            font-size: 0.98rem;
+            max-width: 480px;
+            color: var(--gris);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.3rem;
+            background: linear-gradient(135deg, #25D366, #1ebe57);
+            border-radius: 999px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-whatsapp::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent 55%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-whatsapp:hover::after { opacity: 1; }
+        .btn-whatsapp i { font-size: 1.1rem; }
+
+        .btn-outline {
+            padding: 0.8rem 1.2rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.25);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.8rem;
+        }
+
+        .hero-tag {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 209, 102, 0.6);
+            background: rgba(0,0,0,0.6);
+        }
+
+        .hero-image { position: relative; }
+
+        .hero-card {
+            background: rgba(0,0,0,0.8);
+            border-radius: var(--radius-xl);
+            padding: 1rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-card-title { font-size: 1.05rem; font-weight: 700; }
+
+        .hero-chip {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(255, 209, 102, 0.12);
+            border: 1px solid rgba(255, 209, 102, 0.6);
+        }
+
+        .hero-meats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-meat {
+            font-size: 0.78rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(214, 40, 40, 0.26);
+        }
+
+        .hero-mini-info {
+            font-size: 0.78rem;
+            color: var(--gris);
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        /* Tacos voladores */
+        .taco-float {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.85;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.6));
+            animation: float-taco 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .taco-float:nth-child(1) { top: 8%; left: 10%; animation-delay: -1s; }
+        .taco-float:nth-child(2) { top: 12%; right: 5%; animation-delay: -2s; }
+        .taco-float:nth-child(3) { bottom: 8%; left: 3%; animation-delay: -3s; }
+        .taco-float:nth-child(4) { bottom: 12%; right: 10%; animation-delay: -4s; }
+
+        @keyframes float-taco {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(10deg); }
+            100% { transform: translateY(-10px) rotate(-8deg); }
+        }
+
+        /* =========================
+           SECCIONES GENERALES
+        ========================== */
+        section { padding: 3rem 1.2rem; }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--gris);
+            margin-bottom: 1.8rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           NOSOTROS
+        ========================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-xl);
+            padding: 1.3rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .about-card p { font-size: 0.95rem; }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
+        }
+
+        .about-highlight {
+            background: rgba(214, 40, 40, 0.22);
+            border-radius: 14px;
+            padding: 0.7rem;
+            font-size: 0.8rem;
+        }
+
+        .about-highlight strong {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* =========================
+           POR QUÉ ELEGIRNOS
+        ========================== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .why-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-xl);
+            padding: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.07);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .why-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            background: radial-gradient(circle at top, var(--amarillo), var(--amarillo-oscuro));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.3rem;
+        }
+
+        .why-card h3 {
+            font-size: 0.98rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .why-card p {
+            font-size: 0.8rem;
+            color: var(--gris);
+        }
+
+        /* =========================
+           SECCIÓN SALSAS
+        ========================== */
+        .salsas-section {
+            background: #050505;
+        }
+
+        .salsas-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .salsa-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-xl);
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.07);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            gap: 0.7rem;
+            align-items: flex-start;
+        }
+
+        .salsa-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: radial-gradient(circle at top, var(--rojo), var(--rojo-oscuro));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .salsa-card h3 {
+            font-size: 0.9rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .salsa-tagline {
+            font-size: 0.78rem;
+            color: var(--gris);
+            margin-bottom: 0.1rem;
+        }
+
+        .salsa-picor {
+            font-size: 0.75rem;
+            color: var(--amarillo);
+        }
+
+        /* =========================
+           MENÚ
+        ========================== */
+        .menu-section {
+            background: radial-gradient(circle at top, #411, #020202 55%);
+        }
+
+        .menu-categories {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.4rem;
+        }
+
+        .menu-category {
+            background: var(--card-bg);
+            border-radius: var(--radius-xl);
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .menu-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .menu-category-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .menu-category-badge {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(255, 209, 102, 0.16);
+            border: 1px solid rgba(255, 209, 102, 0.7);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.6rem;
+            padding: 0.45rem 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+            font-size: 0.9rem;
+        }
+
+        .menu-item:last-child { border-bottom: none; }
+
+        .menu-item-name { font-weight: 500; }
+        .menu-item-note { font-size: 0.75rem; color: var(--gris); }
+        .menu-item-price { font-weight: 700; color: var(--amarillo); }
+
+        .menu-legend {
+            font-size: 0.75rem;
+            color: var(--gris);
+            margin-top: 0.7rem;
+        }
+
+        .menu-cta {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .menu-cta p {
+            font-size: 0.85rem;
+            color: var(--gris);
+            margin-bottom: 0.7rem;
+        }
+
+        .btn-whatsapp-pulse {
+            position: relative;
+        }
+
+        .btn-whatsapp-pulse::before {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            border-radius: 999px;
+            border: 2px solid rgba(37, 211, 102, 0.6);
+            opacity: 0;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            70% { transform: scale(1.08); opacity: 0; }
+            100% { transform: scale(1.15); opacity: 0; }
+        }
+
+        /* =========================
+           TESTIMONIOS
+        ========================== */
+        .testimonials { background: #050505; }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-xl);
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .testimonial-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.4rem;
+        }
+
+        .testimonial-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .testimonial-badge {
+            font-size: 0.7rem;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(214, 40, 40, 0.4);
+        }
+
+        .testimonial-stars {
+            color: #ffc107;
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .testimonial-text {
+            font-size: 0.85rem;
+            color: var(--gris);
+        }
+
+        /* =========================
+           CONTACTO
+        ========================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-xl);
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .contact-info-line {
+            display: flex;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-line i {
+            width: 18px;
+            margin-top: 2px;
+            color: var(--amarillo);
+        }
+
+        .contact-socials {
+            margin-top: 0.9rem;
+            display: flex;
+            gap: 0.7rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+
+        .contact-socials a:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.12);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            min-height: 260px;
+            border: 0;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+        footer {
+            padding: 1.5rem 1.2rem 2.5rem;
+            background: #020202;
+            font-size: 0.75rem;
+            color: var(--gris);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-inner span strong { color: var(--amarillo); }
+
+        /* =========================
+           BOTÓN FLOTANTE WHATSAPP
+        ========================== */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 18px;
+            right: 18px;
+            z-index: 999;
+        }
+
+        .floating-whatsapp a {
+            width: 54px;
+            height: 54px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #25D366, #1ebe57);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-whatsapp i {
+            font-size: 1.6rem;
+            color: #fff;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* =========================
+           MEDIA QUERIES
+        ========================== */
+        @media (min-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+
+            .hero-text h1 { font-size: 3.4rem; }
+
+            .hero { padding-top: 4.5rem; }
+
+            .about-grid {
+                grid-template-columns: 1.6fr 1.1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .salsas-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .menu-categories {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contact-grid {
+                grid-template-columns: 1.1fr 1.1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-text h1 { font-size: 4rem; }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .salsas-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/5216141999151?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" aria-label="Haz tu pedido por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- HEADER / NAV -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🌮</span>
+                <div class="logo-text">TACOS EL PRIMO</div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#salsas">Salsas</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#porque">¿Por qué elegirnos?</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO / INICIO -->
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+
+        <!-- Tacos voladores -->
+        <div class="taco-float">🌮</div>
+        <div class="taco-float">🌮</div>
+        <div class="taco-float">🌮</div>
+        <div class="taco-float">🌮</div>
+
+        <div class="hero-content reveal">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-fire"></i>
+                    Auténticos tacos estilo Jalisco · 18 años
+                </div>
+                <h1>TACOS EL PRIMO 🌮🇲🇽🔥</h1>
+                <p>
+                    Tacos al pastor y suadero con sazón jalisciense, hechos al momento en el corazón de la colonia Santo Niño, Chihuahua. 
+                    Tradición familiar, porciones generosas y salsas artesanales que te harán regresar.
+                </p>
+                <div class="hero-cta">
+                    <a class="btn-whatsapp btn-whatsapp-pulse" href="https://wa.me/5216141999151?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Ordenar ahora por WhatsApp</span>
+                    </a>
+                    <a class="btn-outline" href="#menu">
+                        Ver menú completo
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                <div class="hero-tags">
+                    <span class="hero-tag">🌮 Especialidad: Pastor & Suadero</span>
+                    <span class="hero-tag">⏰ Lun a Sáb · 1:00 PM – 10:00 PM</span>
+                    <span class="hero-tag">📍 Calle 25, 1702 · Santo Niño</span>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="hero-card-title">Orden Especial "El Primo"</div>
+                        <div class="hero-chip">Recomendado</div>
+                    </div>
+
+                    <!-- SOLO CARNES EN LA ORDEN SUGERIDA -->
+                    <div class="hero-meats">
+                        <span class="hero-meat">3x Pastor</span>
+                        <span class="hero-meat">2x Suadero</span>
+                        <span class="hero-meat">Orden combinada</span>
+                    </div>
+
+                    <div class="hero-mini-info">
+                        <span><i class="fa-solid fa-location-dot"></i> Santo Niño · Chihuahua</span>
+                        <span><i class="fa-solid fa-star"></i> Tradición familiar desde 2007</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros">
+        <div class="section-inner reveal">
+            <h2 class="section-title">Nuestra historia</h2>
+            <p class="section-subtitle">Tacos con alma jalisciense y corazón chihuahuense.</p>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <p>
+                        Somos un negocio familiar que comenzó hace 18 años gracias a <strong>"El Primo"</strong>, originario de Jalisco, 
+                        quien trajo la auténtica sazón jalisciense a Chihuahua. En 2019 falleció, pero sus hijos y esposa 
+                        continuamos con su legado, manteniendo la misma calidad y sabor de siempre.
+                    </p>
+                    <br>
+                    <p>
+                        Nos distinguimos por la <strong>calidad excepcional</strong> de nuestros tacos, una <strong>gran variedad de salsas artesanales</strong> 
+                        y una atención al cliente que hace que cada visita se sienta como estar en casa. Aquí no solo vienes a comer: 
+                        vienes a ser parte de la familia.
+                    </p>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="about-highlight">
+                        <strong>18 años de experiencia</strong>
+                        Perfeccionando la receta de pastor y suadero estilo Jalisco para que cada bocado sea inolvidable.
+                    </div>
+                    <div class="about-highlight">
+                        <strong>Salsas artesanales</strong>
+                        Desde la clásica de aguacate hasta la macha, todas hechas en casa con ingredientes frescos.
+                    </div>
+                    <div class="about-highlight">
+                        <strong>Ubicación estratégica</strong>
+                        Calle 25, 1702, Santo Niño, Chihuahua, de fácil acceso y perfecta para cenar a gusto.
+                    </div>
+                    <div class="about-highlight">
+                        <strong>Trato de familia</strong>
+                        Nos encanta aprender tu nombre, tu orden favorita y verte regresar con más amigos.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SALSAS -->
+    <section id="salsas" class="salsas-section">
+        <div class="section-inner reveal">
+            <h2 class="section-title">Barra de salsas artesanales</h2>
+            <p class="section-subtitle">Todas las salsas están incluidas con tu orden. Sirve a tu gusto, pero con respeto al picante 😉🌶️</p>
+
+            <div class="salsas-grid">
+                <div class="salsa-card">
+                    <div class="salsa-icon">🥑</div>
+                    <div>
+                        <h3>Salsa de aguacate sin picante</h3>
+                        <div class="salsa-tagline">Cremosa, fresca y suave. Ideal para quienes no comen picante (tipo verde sin picar).</div>
+                        <div class="salsa-picor">Picor: 0/5 · Perfecta para niños y sensibles al chile.</div>
+                    </div>
+                </div>
+
+                <div class="salsa-card">
+                    <div class="salsa-icon">🥑</div>
+                    <div>
+                        <h3>Salsa de aguacate con picante</h3>
+                        <div class="salsa-tagline">Todo el sabor del aguacate, pero con un toque de fuego.</div>
+                        <div class="salsa-picor">Picor: 2/5 · Buen balance entre sabor y picante.</div>
+                    </div>
+                </div>
+
+                <div class="salsa-card">
+                    <div class="salsa-icon">🌶️</div>
+                    <div>
+                        <h3>Salsa roja</h3>
+                        <div class="salsa-tagline">Clásica de la taquería, sabor intenso y bien especiada.</div>
+                        <div class="salsa-picor">Picor: 3/5 · Para los que ya están acostumbrados.</div>
+                    </div>
+                </div>
+
+                <div class="salsa-card">
+                    <div class="salsa-icon">🧡</div>
+                    <div>
+                        <h3>Salsa naranja</h3>
+                        <div class="salsa-tagline">Cremosa y picosita, perfecta para pastor y suadero.</div>
+                        <div class="salsa-picor">Picor: 3/5 · Muy adictiva.</div>
+                    </div>
+                </div>
+
+                <div class="salsa-card">
+                    <div class="salsa-icon">🔥</div>
+                    <div>
+                        <h3>Salsa de tomatillo tostado</h3>
+                        <div class="salsa-tagline">Sabor ahumado y bien marcado, receta de la casa.</div>
+                        <div class="salsa-picor">Picor: 3/5 · Más sabor que picor, pero sí se siente.</div>
+                    </div>
+                </div>
+
+                <div class="salsa-card">
+                    <div class="salsa-icon">🥗</div>
+                    <div>
+                        <h3>Pico de gallo</h3>
+                        <div class="salsa-tagline">Jitomate, cebolla, cilantro y chile muy ligero. Frescura en cada bocado.</div>
+                        <div class="salsa-picor">Picor: 0/5 · Ideal si quieres sabor fresco sin picante.</div>
+                    </div>
+                </div>
+
+                <div class="salsa-card">
+                    <div class="salsa-icon">🌶️</div>
+                    <div>
+                        <h3>Salsa de habanero</h3>
+                        <div class="salsa-tagline">Solo para valientes, sabor intenso y picor directo.</div>
+                        <div class="salsa-picor">Picor: 5/5 · <strong>Cuidado.</strong></div>
+                    </div>
+                </div>
+
+                <div class="salsa-card">
+                    <div class="salsa-icon">💀</div>
+                    <div>
+                        <h3>Salsa macha</h3>
+                        <div class="salsa-tagline">Aceite, chiles secos y mucho carácter. Ideal para rematar el taco.</div>
+                        <div class="salsa-picor">Picor: 4/5 · Intensa y muy sabrosa.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿POR QUÉ ELEGIRNOS? -->
+    <section id="porque">
+        <div class="section-inner reveal">
+            <h2 class="section-title">¿Por qué elegirnos?</h2>
+            <p class="section-subtitle">No son solo tacos, es una experiencia completa.</p>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🔥</div>
+                    <div>
+                        <h3>Sazón estilo Jalisco</h3>
+                        <p>
+                            Pastor y suadero marinados con receta propia, inspirada en las taquerías tradicionales de Jalisco, 
+                            pero adaptada al paladar norteño.
+                        </p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🌮</div>
+                    <div>
+                        <h3>Porciones generosas</h3>
+                        <p>
+                            Órdenes de 5 tacos bien servidos, tortillas calientitas y carne jugosa. Aquí no escatimamos.
+                        </p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🫙</div>
+                    <div>
+                        <h3>Salsas artesanales</h3>
+                        <p>
+                            Barra completa de salsas hechas en casa: aguacate, roja, naranja, tomatillo tostado, pico de gallo, habanero y macha.
+                        </p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">👨‍👩‍👧‍👦</div>
+                    <div>
+                        <h3>Ambiente familiar</h3>
+                        <p>
+                            Negocio atendido por la familia de El Primo, con un trato cercano, respetuoso y alegre.
+                        </p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">⭐</div>
+                    <div>
+                        <h3>Clientes fieles</h3>
+                        <p>
+                            Muchos de nuestros clientes llevan años cenando con nosotros y trayendo a nuevas generaciones.
+                        </p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">⏰</div>
+                    <div>
+                        <h3>Horario ideal</h3>
+                        <p>
+                            De lunes a sábado de 1:00 PM a 10:00 PM, perfecto para comida tarde, antojito, o cena completa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENÚ -->
+    <section id="menu" class="menu-section">
+        <div class="section-inner reveal">
+            <h2 class="section-title">Menú</h2>
+            <p class="section-subtitle">Elige tu antojo, nosotros lo preparamos al momento.</p>
+
+            <div class="menu-categories">
+                <!-- TACOS -->
+                <div class="menu-category">
+                    <div class="menu-category-header">
+                        <div class="menu-category-title">Tacos (orden de 5)</div>
+                        <div class="menu-category-badge">Especialidad</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Al Pastor 🌮🔥</div>
+                            <div class="menu-item-note">Nuestra estrella, estilo Jalisco.</div>
+                        </div>
+                        <div class="menu-item-price">$125</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Chorizo</div>
+                        </div>
+                        <div class="menu-item-price">$125</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Asada</div>
+                        </div>
+                        <div class="menu-item-price">$125</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Suadero ⭐</div>
+                            <div class="menu-item-note">Jugoso y suave, favorito de la casa.</div>
+                        </div>
+                        <div class="menu-item-price">$125</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Prensado (Chicharrón)</div>
+                        </div>
+                        <div class="menu-item-price">$125</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Combinada</div>
+                            <div class="menu-item-note">Arma la mezcla que más se te antoje.</div>
+                        </div>
+                        <div class="menu-item-price">$125</div>
+                    </div>
+                    <p class="menu-legend">
+                        Todas las órdenes incluyen cebolla, cilantro, limón y acceso libre a la barra de salsas. 🔥
+                    </p>
+                </div>
+
+                <!-- DE HARINA -->
+                <div class="menu-category">
+                    <div class="menu-category-header">
+                        <div class="menu-category-title">De harina</div>
+                        <div class="menu-category-badge">Con o sin queso</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Taco de Harina</div>
+                        </div>
+                        <div class="menu-item-price">$35</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Taco de Harina con Queso</div>
+                        </div>
+                        <div class="menu-item-price">$40</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Gringa Sencilla</div>
+                            <div class="menu-item-note">Una sola carne a elegir.</div>
+                        </div>
+                        <div class="menu-item-price">$80</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Gringa Combinada</div>
+                            <div class="menu-item-note">Dos carnes a tu gusto.</div>
+                        </div>
+                        <div class="menu-item-price">$85</div>
+                    </div>
+                    <p class="menu-legend">
+                        Gringas y lorenzas sencillas incluyen 1 carne; las combinadas, 2 carnes. Ideal para compartir. 😋
+                    </p>
+                </div>
+
+                <!-- LORENZAS -->
+                <div class="menu-category">
+                    <div class="menu-category-header">
+                        <div class="menu-category-title">Lorenzas</div>
+                        <div class="menu-category-badge">Clásico del norte</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Lorenza Sencilla</div>
+                            <div class="menu-item-note">Con una carne a elegir.</div>
+                        </div>
+                        <div class="menu-item-price">$60</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Lorenza Combinada</div>
+                            <div class="menu-item-note">Con dos carnes combinadas.</div>
+                        </div>
+                        <div class="menu-item-price">$65</div>
+                    </div>
+                </div>
+
+                <!-- BEBIDAS -->
+                <div class="menu-category">
+                    <div class="menu-category-header">
+                        <div class="menu-category-title">Bebidas</div>
+                        <div class="menu-category-badge">Refrescate</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Refresco</div>
+                            <div class="menu-item-note">Variedad de sabores según disponibilidad.</div>
+                        </div>
+                        <div class="menu-item-price">$25</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Agua de sabor</div>
+                            <div class="menu-item-note">Tradicionales, frescas y bien frías.</div>
+                        </div>
+                        <div class="menu-item-price">$25</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-cta">
+                <p>¿Ya se te antojaron? Manda mensaje y arma tu pedido para llevar o para cenar aquí. 🌮</p>
+                <a class="btn-whatsapp btn-whatsapp-pulse" href="https://wa.me/5216141999151?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Hacer pedido desde el menú
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="testimonials">
+        <div class="section-inner reveal">
+            <h2 class="section-title">Lo que dice la raza</h2>
+            <p class="section-subtitle">Clientes que ya hicieron de Tacos El Primo su lugar de confianza.</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-name">Carlos G.</div>
+                        <div class="testimonial-badge">Cliente frecuente</div>
+                    </div>
+                    <div class="testimonial-stars">
+                        ★★★★★
+                    </div>
+                    <p class="testimonial-text">
+                        "Los mejores tacos de pastor que he probado en Chihuahua. La carne siempre bien doradita y las salsas están brutales. 
+                        Se nota que es una receta de años."
+                    </p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-name">María Fernanda R.</div>
+                        <div class="testimonial-badge">Tradición familiar</div>
+                    </div>
+                    <div class="testimonial-stars">
+                        ★★★★★
+                    </div>
+                    <p class="testimonial-text">
+                        "Desde que mi papá nos trajo hace años, se volvió la taquería oficial de la familia. Siempre nos atienden súper bien y el ambiente es muy 
+                        tranquilo y familiar."
+                    </p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-name">Jorge L.</div>
+                        <div class="testimonial-badge">Fan del suadero</div>
+                    </div>
+                    <div class="testimonial-stars">
+                        ★★★★★
+                    </div>
+                    <p class="testimonial-text">
+                        "El suadero es otro nivel, suave y con mucho sabor. Me encanta que no escatiman en la carne y las lorenzas quedan increíbles. 100% recomendados."
+                    </p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-name">Ana Sofía M.</div>
+                        <div class="testimonial-badge">Amante del picante</div>
+                    </div>
+                    <div class="testimonial-stars">
+                        ★★★★☆
+                    </div>
+                    <p class="testimonial-text">
+                        "Las salsas son mi parte favorita, sobre todo la de habanero y la macha. Además el personal siempre nos trata como en casa."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="section-inner reveal">
+            <h2 class="section-title">Contacto & ubicación</h2>
+            <p class="section-subtitle">Ven a visitarnos o haz tu pedido por WhatsApp.</p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-info-line">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Dirección:</strong><br>
+                            Calle 25, 1702, Santo Niño,<br>
+                            Chihuahua, Chihuahua, México.
+                        </div>
+                    </div>
+                    <div class="contact-info-line">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <strong>Horarios:</strong><br>
+                            Lunes a Sábado: 1:00 PM – 10:00 PM
+                        </div>
+                    </div>
+                    <div class="contact-info-line">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp:</strong><br>
+                            <a href="https://wa.me/5216141999151?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank">
+                                614 199 9151
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-info-line">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <div>
+                            <strong>Referencia en mapas:</strong><br>
+                            Calle 25, 1702, Santo Niño, Chihuahua.
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <a class="btn-whatsapp" href="https://wa.me/5216141999151?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Mandar mensaje ahora
+                        </a>
+                    </div>
+
+                    <div class="contact-socials">
+                        <a href="#" title="Facebook (próximamente)">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" title="Instagram (próximamente)">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" title="TikTok (próximamente)">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps?q=Calle%2025%201702%20Santo%20Ni%C3%B1o%20Chihuahua&output=embed"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <span>© <span id="year"></span> <strong>Tacos El Primo</strong>. Todos los derechos reservados.</span>
+            <span>Calle 25, 1702, Santo Niño, Chihuahua, Chihuahua, México.</span>
+            <span>Hecho con 🌮 y ❤️ para los amantes de los tacos.</span>
+        </div>
+    </footer>
+
+    <!-- JS: animaciones + año dinámico -->
+    <script>
+        const observerOptions = { threshold: 0.15 };
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealOnScroll, observerOptions);
+        revealElements.forEach(el => observer.observe(el));
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
